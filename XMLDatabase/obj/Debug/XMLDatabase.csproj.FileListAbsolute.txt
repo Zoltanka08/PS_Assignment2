@@ -1,0 +1,6 @@
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\XMLDatabase\bin\Debug\XMLDatabase.exe.config
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\XMLDatabase\bin\Debug\XMLDatabase.exe
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\XMLDatabase\bin\Debug\XMLDatabase.pdb
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\XMLDatabase\obj\Debug\XMLDatabase.csprojResolveAssemblyReference.cache
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\XMLDatabase\obj\Debug\XMLDatabase.exe
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\XMLDatabase\obj\Debug\XMLDatabase.pdb

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Books>
+	<Book Id = 1>
+		<Title>The Great Gatsby</Title>
+		<Genre>Romance</Genre>
+		<Description>A social satire and a milestone in 20th century literature, 
+		'The Great Gatsby' peels away the layers of the glamorous twenties in the U.S. 
+		to display the coldness and cruelty at its heart.
+		</Description>
+		<Author>F. Scott Fitzgerald</Author>
+		<Pages>180</Pages>
+		<Published>1925</Published>
+		<Price>9.34</Price>
+		<Quantity>12</Quantity>
+	</Book>
+	<Book Id = 2>
+		<Title>Plague land</Title>
+		<Genre>Mystery</Genre>
+		<Description>In this chilling historical mystery, 
+		young girls go missing from a medieval English village and Lord Oswald 
+		de Lacy must find the killer before tragedy strikes again.
+		</Description>
+		<Author>S.D. Sykes</Author>
+		<Pages>336</Pages>
+		<Published>2015</Published>
+		<Price>13.5</Price>
+		<Quantity>5</Quantity>
+	</Book>
+</Books>

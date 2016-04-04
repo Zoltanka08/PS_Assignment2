@@ -1,0 +1,5 @@
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\Services\bin\Debug\Services.dll
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\Services\bin\Debug\Services.pdb
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\Services\obj\Debug\Services.dll
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\Services\obj\Debug\Services.pdb
+c:\users\zoli\documents\visual studio 2013\Projects\Bookstore\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache

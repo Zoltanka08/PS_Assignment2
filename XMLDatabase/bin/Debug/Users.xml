@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Users>
+	<User>
+		<Id>1</Id>
+		<Username>Zoli123</Username>
+		<Password>1234</Password>
+		<Firstname>Zoltan</Firstname>
+		<Lastname>Czako</Lastname>
+		<Mobile>0745236906</Mobile>
+		<Mail>czako_zoli@yahoo.com</Mail>
+		<Role>admin</Role>
+	</User>
+	<User>
+		<Id>1</Id>
+		<Username>Sami123</Username>
+		<Password>1234</Password>
+		<Firstname>Dolean</Firstname>
+		<Lastname>Samuel</Lastname>
+		<Mobile>0743245449</Mobile>
+		<Mail>sam_sami@yahoo.com</Mail>
+		<Role>employee</Role>
+	</User>
+</Users>
