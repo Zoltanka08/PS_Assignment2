@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomExceptions\DatabaseException.cs" />
+    <Compile Include="DataAccessors\BookDataAccessor.cs" />
     <Compile Include="DataAccessors\UserDataAccessor.cs" />
+    <Compile Include="Interfaces\IBookDataAccessor.cs" />
     <Compile Include="Interfaces\IUserDataAccessor.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

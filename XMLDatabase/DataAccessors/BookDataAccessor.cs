@@ -12,15 +12,15 @@ using XMLDatabase.Models;
 
 namespace XMLDatabase.DataAccessors
 {
-    public class UserDataAccessor : IUserDataAccessor
+    public class BookDataAccessor : IBookDataAccessor
     {
         private string fileName;
-        public UserDataAccessor()
+        public BookDataAccessor()
         {
-            fileName = "Users.xml";
+            fileName = "Books.xml";
         }
 
-        public bool Insert(Models.User user)
+        public bool Insert(Book book)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace XMLDatabase.DataAccessors
                 {
                     XmlTextWriter textWrite = new XmlTextWriter(fileName, null);
                     textWrite.WriteStartDocument();
-                    textWrite.WriteStartElement("User");
+                    textWrite.WriteStartElement("Book");
                     textWrite.WriteEndElement();
                     textWrite.Close();
                 }
@@ -38,34 +38,37 @@ namespace XMLDatabase.DataAccessors
                 xmlDoc.Load(fileName);
 
                 // Creating User node
-                XmlElement subNode = xmlDoc.CreateElement("User");
+                XmlElement subNode = xmlDoc.CreateElement("Book");
 
                 // Getting the maximum Id based on the XML data already stored
-                string strId = CommonMethods.GetMaxValue(xmlDoc, "Users" + "/" + "User" + "/" + "Id").ToString();
+                string strId = CommonMethods.GetMaxValue(xmlDoc, "Books" + "/" + "Book" + "/" + "Id").ToString();
 
                 // Adding Id column. Auto generated column
                 subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Id", strId));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Username", user.Username));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Title", book.Title));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Password", user.Password));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Genre", book.Genre));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Firstname", user.Firstname));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Description", book.Description));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Lastname", user.Lastname));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Author", book.Author));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Mobile", user.Mobile));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Pages", book.Pages.ToString()));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Mail", user.Mail));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Published", book.Published));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
-                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Role", user.Role));
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Price", book.Price.ToString()));
+                xmlDoc.DocumentElement.AppendChild(subNode);
+
+                subNode.AppendChild(CommonMethods.CreateXMLElement(xmlDoc, "Quantity", book.Quantity.ToString()));
                 xmlDoc.DocumentElement.AppendChild(subNode);
 
                 // Saving the file after adding the new employee node
@@ -75,11 +78,11 @@ namespace XMLDatabase.DataAccessors
             }
             catch(Exception ex)
             {
-                throw new DatabaseException("User cannot be inserted!", ex.InnerException);
+                throw new DatabaseException("Book cannot be inserted!", ex.InnerException);
             }
         }
 
-        public bool Update(Models.User user)
+        public bool Update(Models.Book book)
         {
             try
             {
@@ -88,19 +91,20 @@ namespace XMLDatabase.DataAccessors
                     XmlDocument objXmlDocument = new XmlDocument();
                     objXmlDocument.Load(fileName);
 
-                    XmlNode node = objXmlDocument.SelectSingleNode("//User[Id='" + user.Id + "']");
+                    XmlNode node = objXmlDocument.SelectSingleNode("//Book[Id='" + book.Id + "']");
 
                     if (node != null)
                     {
                         // Assigining all the values
-                        node.SelectNodes("Id").Item(0).FirstChild.Value = user.Id.ToString();
-                        node.SelectNodes("Username").Item(0).FirstChild.Value = user.Username;
-                        node.SelectNodes("Password").Item(0).FirstChild.Value = user.Password;
-                        node.SelectNodes("Firstname").Item(0).FirstChild.Value = user.Firstname;
-                        node.SelectNodes("Lastname").Item(0).FirstChild.Value = user.Lastname;
-                        node.SelectNodes("Mobile").Item(0).FirstChild.Value = user.Mobile;
-                        node.SelectNodes("Mail").Item(0).FirstChild.Value = user.Mail;
-                        node.SelectNodes("Role").Item(0).FirstChild.Value = user.Role;
+                        node.SelectNodes("Id").Item(0).FirstChild.Value = book.Id.ToString();
+                        node.SelectNodes("Title").Item(0).FirstChild.Value = book.Title;
+                        node.SelectNodes("Genre").Item(0).FirstChild.Value = book.Genre;
+                        node.SelectNodes("Description").Item(0).FirstChild.Value = book.Description;
+                        node.SelectNodes("Author").Item(0).FirstChild.Value = book.Author;
+                        node.SelectNodes("Pages").Item(0).FirstChild.Value = book.Pages.ToString();
+                        node.SelectNodes("Published").Item(0).FirstChild.Value = book.Published;
+                        node.SelectNodes("Price").Item(0).FirstChild.Value = book.Price.ToString();
+                        node.SelectNodes("Quantity").Item(0).FirstChild.Value = book.Quantity.ToString();
                     }
 
                     objXmlDocument.Save(fileName);
@@ -115,7 +119,7 @@ namespace XMLDatabase.DataAccessors
             }
             catch (Exception ex)
             {
-                throw new DatabaseException("User cannot be updated!", ex.InnerException);
+                throw new DatabaseException("Book cannot be updated!", ex.InnerException);
             }
         }
 
@@ -128,7 +132,7 @@ namespace XMLDatabase.DataAccessors
                     XmlDocument objXmlDocument = new XmlDocument();
                     objXmlDocument.Load(fileName);
 
-                    XmlNode node = objXmlDocument.SelectSingleNode("//User[Id='" + id + "']");
+                    XmlNode node = objXmlDocument.SelectSingleNode("//Book[Id='" + id + "']");
 
                     if (node != null)
                     {
@@ -146,11 +150,11 @@ namespace XMLDatabase.DataAccessors
             }
             catch (Exception ex)
             {
-                throw new DatabaseException("User cannot be deleted!", ex.InnerException);
+                throw new DatabaseException("Book cannot be deleted!", ex.InnerException);
             }
         }
 
-        public IEnumerable<Models.User> GetAll()
+        public IEnumerable<Models.Book> GetAll()
         {
             try
             {
@@ -160,28 +164,29 @@ namespace XMLDatabase.DataAccessors
                     XPathDocument doc = new XPathDocument(fileName);
                     XPathNavigator nav = doc.CreateNavigator();
 
-                    XPathExpression exp = nav.Compile("/Users/User"); // Getting all employees
+                    XPathExpression exp = nav.Compile("/Books/Book"); // Getting all employees
 
                     XPathNodeIterator iterator = nav.Select(exp);
-                    IList<User> objUsers = new List<User>();
+                    IList<Book> objBooks = new List<Book>();
 
                     while (iterator.MoveNext())
                     {
                         XPathNavigator nav2 = iterator.Current.Clone();
 
-                        User objUser = new User();
-                        objUser.Id = Convert.ToInt32(nav2.Select("//User").Current.SelectSingleNode("Id").InnerXml);
-                        objUser.Username = nav2.Select("//User").Current.SelectSingleNode("Username").InnerXml;
-                        objUser.Password = nav2.Select("//User").Current.SelectSingleNode("Password").InnerXml;
-                        objUser.Firstname = nav2.Select("//User").Current.SelectSingleNode("Firstname").InnerXml;
-                        objUser.Lastname = nav2.Select("//User").Current.SelectSingleNode("Lastname").InnerXml;
-                        objUser.Mobile = nav2.Select("//User").Current.SelectSingleNode("Mobile").InnerXml;
-                        objUser.Mail = nav2.Select("//User").Current.SelectSingleNode("Mail").InnerXml;
-                        objUser.Role = nav2.Select("//User").Current.SelectSingleNode("Role").InnerXml;
+                        Book objBook = new Book();
+                        objBook.Id = Convert.ToInt32(nav2.Select("//Book").Current.SelectSingleNode("Id").InnerXml);
+                        objBook.Title = nav2.Select("//Book").Current.SelectSingleNode("Title").InnerXml;
+                        objBook.Genre = nav2.Select("//Book").Current.SelectSingleNode("Genre").InnerXml;
+                        objBook.Description = nav2.Select("//Book").Current.SelectSingleNode("Description").InnerXml;
+                        objBook.Author = nav2.Select("//Book").Current.SelectSingleNode("Author").InnerXml;
+                        objBook.Pages = Convert.ToInt32(nav2.Select("//Book").Current.SelectSingleNode("Pages").InnerXml);
+                        objBook.Price = Convert.ToDouble(nav2.Select("//Book").Current.SelectSingleNode("Price").InnerXml);
+                        objBook.Published = nav2.Select("//Book").Current.SelectSingleNode("Published").InnerXml;
+                        objBook.Quantity = Convert.ToInt32(nav2.Select("//Book").Current.SelectSingleNode("Quantity").InnerXml);
 
-                        objUsers.Add(objUser);
+                        objBooks.Add(objBook);
                     }
-                    return objUsers;
+                    return objBooks;
                 }
             }
             catch (Exception ex)
@@ -191,17 +196,12 @@ namespace XMLDatabase.DataAccessors
             return null;
         }
 
-        public Models.User GetUserByUsername(string username)
+
+
+        public Book GetById(int id)
         {
-            try
-            {
-                User user = GetAll().First(u => u.Username.Equals(username));
-                return user;
-            }
-            catch(Exception ex)
-            {
-                return null;
-            }   
+            Book book = GetAll().First(b => b.Id == id);
+            return book;
         }
     }
 }
