@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dependencies;
 
 namespace Bookstore
 {
@@ -19,6 +21,8 @@ namespace Bookstore
             // To avoid processing unexpected or malicious queries, use the validation settings on QueryableAttribute to validate incoming queries.
             // For more information, visit http://go.microsoft.com/fwlink/?LinkId=279712.
             //config.EnableQuerySupport();
+
+            UnityContainer container = new UnityContainer();
         }
     }
 }
