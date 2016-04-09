@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http.Dependencies;
 using Microsoft.Practices.Unity;
 
-namespace ElectroShopMobile
+namespace Bookstore
 {
     public class UnityResolver : IDependencyResolver
     {
