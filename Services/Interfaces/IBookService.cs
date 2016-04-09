@@ -12,8 +12,8 @@ namespace Services.Interfaces
     {
         Book GetById(int id);
         IEnumerable<Book> GetAll();
-        bool Insert(Book book);
-        bool Update(Book book);
-        bool Delete(int id);
+        void Insert(Book book);
+        void Update(Book book);
+        void Delete(int id);
     }
 }

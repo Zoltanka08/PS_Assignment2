@@ -17,7 +17,11 @@ namespace XMLDatabase.DataAccessors
         private string fileName;
         public BookDataAccessor()
         {
-            fileName = "Books.xml";
+#if DEBUG 
+            fileName = @"E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\bin\Debug\Books.xml";
+#else
+            fileName = @"E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\bin\Release\Books.xml";
+#endif
         }
 
         public bool Insert(Book book)
@@ -196,12 +200,17 @@ namespace XMLDatabase.DataAccessors
             return null;
         }
 
-
-
         public Book GetById(int id)
         {
-            Book book = GetAll().First(b => b.Id == id);
-            return book;
+            try
+            {
+                Book book = GetAll().First(b => b.Id == id);
+                return book;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }  
         }
     }
 }

@@ -17,7 +17,11 @@ namespace XMLDatabase.DataAccessors
         private string fileName;
         public UserDataAccessor()
         {
-            fileName = "Users.xml";
+#if DEBUG
+            fileName = @"E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\bin\Debug\Users.xml";
+#else
+            fileName = @"E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\bin\Release\Users.xml";
+#endif
         }
 
         public bool Insert(Models.User user)

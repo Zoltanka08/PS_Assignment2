@@ -12,8 +12,8 @@ namespace Services.Interfaces
     {
         User GetByUsername(string username);
         IEnumerable<User> GetAll();
-        bool Insert(User employee);
-        bool Update(User employee);
-        bool Delete(int id);
+        void Insert(User employee);
+        void Update(User employee);
+        void Delete(int id);
     }
 }

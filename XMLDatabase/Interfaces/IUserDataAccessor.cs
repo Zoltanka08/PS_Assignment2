@@ -7,7 +7,7 @@ using XMLDatabase.Models;
 
 namespace XMLDatabase.Interfaces
 {
-    interface IUserDataAccessor
+    public interface IUserDataAccessor
     {
         bool Insert(User user);
         bool Update(User user);

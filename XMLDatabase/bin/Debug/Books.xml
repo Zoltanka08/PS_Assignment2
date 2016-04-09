@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Books>
-	<Book Id = 1>
+	<Book>
+		<Id>1</Id>
 		<Title>The Great Gatsby</Title>
 		<Genre>Romance</Genre>
 		<Description>A social satire and a milestone in 20th century literature, 
@@ -13,7 +14,8 @@
 		<Price>9.34</Price>
 		<Quantity>12</Quantity>
 	</Book>
-	<Book Id = 2>
+	<Book>
+		<Id>2</Id>
 		<Title>Plague land</Title>
 		<Genre>Mystery</Genre>
 		<Description>In this chilling historical mystery, 
