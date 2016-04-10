@@ -32,8 +32,16 @@ namespace ElectroShopMobile.CustomAttributes
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             User user = userService.GetByUsername(HttpContext.Current.User.Identity.Name);
-            if (httpContext.User.IsInRole(base.Roles))
+            if (string.IsNullOrEmpty(base.Roles))
                 return true;
+
+            string[] allRoles = base.Roles.Split(',');
+            foreach(string role in allRoles)
+            {
+                if (httpContext.User.IsInRole(role))
+                    return true;
+            }
+
             return false;
         }
 

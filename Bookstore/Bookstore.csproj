@@ -304,6 +304,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\bookstore.png" />
+    <Content Include="Images\HomePageImage.jpg" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -362,6 +364,9 @@
     <Content Include="Views\MyAccount\Index.cshtml" />
     <Content Include="Views\MyAccount\Login.cshtml" />
     <Content Include="Views\MyAccount\Register.cshtml" />
+    <Content Include="Views\Books\SellBook.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
