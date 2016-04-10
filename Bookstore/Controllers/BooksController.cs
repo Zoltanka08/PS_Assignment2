@@ -9,6 +9,8 @@ using XMLDatabase.Models;
 using Bookstore.Models;
 using ElectroShopMobile.CustomAttributes;
 using Services.CustomExceptions;
+using Bookstore.FactoryDP.AbstractProductInterface;
+using Bookstore.FactoryDP.Assembler;
 
 namespace Bookstore.Controllers
 {
@@ -25,7 +27,7 @@ namespace Bookstore.Controllers
         }
 
         [UserAuthorize(Roles = "admin,employee")]
-        public ActionResult Index(string searchTerm = null)
+        public ActionResult Index(string searchTerm = null, bool hasReport = false)
         {
             MapperConfiguration config = new MapperConfiguration(cfg => { cfg.CreateMap<Book, BookViewModel>(); });
             IMapper mapper = config.CreateMapper();
@@ -37,7 +39,8 @@ namespace Bookstore.Controllers
                     || b.Author.StartsWith(searchTerm)
                     || b.Description.StartsWith(searchTerm));
             IEnumerable<BookViewModel> bookModels = mapper.Map<IEnumerable<Book>,IEnumerable<BookViewModel>>(books);
-
+            if (hasReport)
+                ViewBag.Success = true;
             return View(bookModels);
         }
 
@@ -135,6 +138,48 @@ namespace Bookstore.Controllers
             return RedirectToAction("Index", "Books", null);
         }
 
+        public ActionResult Report()
+        {
+            List<SelectListItem> items = GetSelectListForReportType();
+            ViewBag.ReportType = items;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Report(string ReportType)
+        {
+            string reportTypeName = GetReportTypeById(ReportType);
+
+            ReportAssembler reportAssembler = new ReportAssembler(reportTypeName);
+            IReport report = reportAssembler.AssembleReport();
+            report.CreateReport(bookService);
+
+            return RedirectToAction("Index", "Books", new { hasReport = true });
+        }
+        
+        private List<SelectListItem> GetSelectListForReportType()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem()
+            {
+                Selected = true,
+                Text = "txt",
+                Value = "1"
+            });
+            items.Add(new SelectListItem()
+            {
+                Selected = true,
+                Text = "xml",
+                Value = "2"
+            });
+            return items;
+        }
+
+        private string GetReportTypeById(string id)
+        {
+            string type = GetSelectListForReportType().First(r => r.Value.Equals(id)).Text;
+            return type;
+        }
 
     }
 }

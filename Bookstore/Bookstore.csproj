@@ -237,6 +237,14 @@
     <Compile Include="DependencyInjection\ContainerBootstrap.cs" />
     <Compile Include="DependencyInjection\UnityDependencyResolver.cs" />
     <Compile Include="ExceptionHandler\CustomExceptionHandler.cs" />
+    <Compile Include="FactoryDP\AbstractFactoryInterface\IReportFactory.cs" />
+    <Compile Include="FactoryDP\AbstractProductInterface\IReport.cs" />
+    <Compile Include="FactoryDP\Assembler\ReportAssembler.cs" />
+    <Compile Include="FactoryDP\ConcreteFactory\DefaultReportFactory.cs" />
+    <Compile Include="FactoryDP\ConcreteFactory\TxtReportFactory.cs" />
+    <Compile Include="FactoryDP\ConcreteFactory\XmlReportFactory.cs" />
+    <Compile Include="FactoryDP\ConcreteProduct\TxtReport.cs" />
+    <Compile Include="FactoryDP\ConcreteProduct\XmlReport.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -371,10 +379,12 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Books\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="AuthentificationHelper\" />
+    <Folder Include="Report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

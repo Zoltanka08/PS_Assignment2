@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+<script>
+    function submitSuccess() {
+        alert("Form submitted successfully.");
+    }
+</script>
+
+@using (Ajax.BeginForm("Report", "Books", new AjaxOptions { HttpMethod = "POST", OnSuccess = "submitSuccess" }))
+{
+
+    <fieldset>
+
+        Report Type
+
+        @Html.DropDownList("ReportType")
+
+        <p>
+
+            <input type="submit" value="Submit" />
+
+        </p>
+
+    </fieldset>
+
+} 

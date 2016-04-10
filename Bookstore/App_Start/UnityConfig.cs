@@ -8,6 +8,7 @@ using Bookstore.Controllers;
 using Services.Interfaces;
 using Services.Services;
 using ElectroShopMobile.CustomAttributes;
+using Bookstore.FactoryDP.ConcreteProduct;
 
 namespace Bookstore.App_Start
 {
@@ -40,6 +41,12 @@ namespace Bookstore.App_Start
             container.
                 RegisterType<EmployeeController>().
                 RegisterType<IEmployeeService, EmployeeService>();
+            container.
+                RegisterType<TxtReport>().
+                RegisterType<IBookService, BookService>();
+            container.
+                RegisterType<XmlReport>().
+                RegisterType<IBookService, BookService>();
         }
          
     }

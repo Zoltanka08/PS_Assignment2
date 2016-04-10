@@ -4,6 +4,12 @@
     ViewBag.Title = "Index";
 }
 
+@{if(ViewBag.Success == true)
+{
+      <script>alert("Report successfully created! Check the Report folder!");</script>
+}
+}
+
 <h2>Index</h2>
 
 @{
@@ -95,5 +101,10 @@
             </td>
         </tr>
     }
-
 </table>
+ @{
+     if (User != null && User.IsInRole("admin"))
+        {
+            @Html.ActionLink("Generate Report", "Report", "Books", null, null);
+        }
+    }
