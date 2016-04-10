@@ -9,3 +9,4 @@ E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\bin\Debug\XML
 E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\bin\Debug\XMLDatabase.pdb
 E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\obj\Debug\XMLDatabase.exe
 E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\obj\Debug\XMLDatabase.pdb
+E:\University\AnIII\Sem II\PS\Lab\Assigment2\Bookstore\XMLDatabase\obj\Debug\XMLDatabase.csprojResolveAssemblyReference.cache

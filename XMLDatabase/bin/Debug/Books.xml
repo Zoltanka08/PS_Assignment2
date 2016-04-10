@@ -1,31 +1,61 @@
 <?xml version="1.0"?>
 <Books>
-	<Book>
-		<Id>1</Id>
-		<Title>The Great Gatsby</Title>
-		<Genre>Romance</Genre>
-		<Description>A social satire and a milestone in 20th century literature, 
-		'The Great Gatsby' peels away the layers of the glamorous twenties in the U.S. 
-		to display the coldness and cruelty at its heart.
-		</Description>
-		<Author>F. Scott Fitzgerald</Author>
-		<Pages>180</Pages>
-		<Published>1925</Published>
-		<Price>9.34</Price>
-		<Quantity>12</Quantity>
-	</Book>
-	<Book>
-		<Id>2</Id>
-		<Title>Plague land</Title>
-		<Genre>Mystery</Genre>
-		<Description>In this chilling historical mystery, 
+  <Book>
+    <Id>1</Id>
+    <Title>The Great Gatsby</Title>
+    <Genre>Romance</Genre>
+    <Description>A social satire and a milestone in 20th century literature, 		'The Great Gatsby' peels away the layers of the glamorous twenties in the U.S. 		to display the coldness and cruelty at its heart.		</Description>
+    <Author>F. Scott Fitzgerald</Author>
+    <Pages>180</Pages>
+    <Published>1925</Published>
+    <Price>9.34</Price>
+    <Quantity>12</Quantity>
+  </Book>
+  <Book>
+    <Id>2</Id>
+    <Title>Plague land</Title>
+    <Genre>Mystery</Genre>
+    <Description>In this chilling historical mystery, 
 		young girls go missing from a medieval English village and Lord Oswald 
 		de Lacy must find the killer before tragedy strikes again.
 		</Description>
-		<Author>S.D. Sykes</Author>
-		<Pages>336</Pages>
-		<Published>2015</Published>
-		<Price>13.5</Price>
-		<Quantity>5</Quantity>
-	</Book>
+    <Author>S.D. Sykes</Author>
+    <Pages>336</Pages>
+    <Published>2015</Published>
+    <Price>13.5</Price>
+    <Quantity>5</Quantity>
+  </Book>
+  <Book>
+    <Id>3</Id>
+    <Title>All the Light We Cannot See</Title>
+    <Genre>Fiction</Genre>
+    <Description>A beautiful, stunningly ambitious novel about a blind French girl and a German boy whose paths collide in occupied France as both try to survive the devastation of World War II Open your eyes and see what you can with them before they close forever.</Description>
+    <Author>Anthony Doerr</Author>
+    <Pages>544</Pages>
+    <Published>2015</Published>
+    <Price>21.95</Price>
+    <Quantity>27</Quantity>
+  </Book>
+  <Book>
+    <Id>4</Id>
+    <Title>Winter is Coming : The Medieval World of Game of Thrones</Title>
+    <Genre>History</Genre>
+    <Description>Game of Thrones is a phenomenon. As Carolyne Larrington reveals in this essential companion to George R R Martin's fantasy novels and the HBO mega-hit series based on them the show is the epitome of water-cooler TV.</Description>
+    <Author>Carolyne Larrington</Author>
+    <Pages>288</Pages>
+    <Published>2016</Published>
+    <Price>12.9</Price>
+    <Quantity>0</Quantity>
+  </Book>
+  <Book>
+    <Id>5</Id>
+    <Title>The Sleep Revolution : Transforming Your Life, One Night at a Time</Title>
+    <Genre>Psychology</Genre>
+    <Description>We are in the midst of a sleep deprivation crisis, and this has profound consequences - on our health, our job performance, our relationships and our happiness. In this book, Arianna Huffington boldly asserts that what is needed is nothing short of a sleep revolution.</Description>
+    <Author>Arianna Huffington</Author>
+    <Pages>400</Pages>
+    <Published>2016</Published>
+    <Price>17.9</Price>
+    <Quantity>0</Quantity>
+  </Book>
 </Books>

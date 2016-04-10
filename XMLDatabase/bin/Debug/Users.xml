@@ -20,4 +20,14 @@
     <Mail>sam_sami@yahoo.com</Mail>
     <Role>employee</Role>
   </User>
+  <User>
+    <Id>3</Id>
+    <Username>Robi123</Username>
+    <Password>1234</Password>
+    <Firstname>Robert</Firstname>
+    <Lastname>Olah</Lastname>
+    <Mobile>0754328657</Mobile>
+    <Mail>robi_olah@yahoo.com</Mail>
+    <Role>employee</Role>
+  </User>
 </Users>
