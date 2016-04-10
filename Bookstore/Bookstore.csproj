@@ -232,6 +232,7 @@
     <Compile Include="CustomAttributes\UserAuthorizeAttribute.cs" />
     <Compile Include="CustomAttributes\ValidateModelStateAttribute.cs" />
     <Compile Include="CustomPrincipal\CustomPrincipal.cs" />
+    <Compile Include="CustomPrincipal\CustomPrincipalSerializedModel.cs" />
     <Compile Include="DependencyInjection\ContainerBootstrap.cs" />
     <Compile Include="DependencyInjection\UnityDependencyResolver.cs" />
     <Compile Include="ExceptionHandler\CustomExceptionHandler.cs" />

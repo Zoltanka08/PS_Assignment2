@@ -8,6 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Bookstore.DependencyInjection;
 using Bookstore.App_Start;
+using Bookstore.CustomPrincipalNamespace;
+using System.Web.Security;
+using System.Web.Script.Serialization;
 
 namespace Bookstore
 {
@@ -27,6 +30,27 @@ namespace Bookstore
             AuthConfig.RegisterAuth();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(UnityConfig.GetConfiguredContainer()));
+        }
+        
+        protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                CustomPrincipalSerializeModel serializeModel = serializer.Deserialize<CustomPrincipalSerializeModel>(authTicket.UserData);
+
+                CustomPrincipal newUser = new CustomPrincipal(authTicket.Name);
+                newUser.Username = serializeModel.Username;
+                newUser.Role = serializeModel.Role;
+                newUser.Firstname = serializeModel.Firstname;
+                newUser.Lastname = serializeModel.Lastname;
+
+                HttpContext.Current.User = newUser;
+            }
         }
     }
 }

@@ -7,6 +7,10 @@ using Services.Interfaces;
 using AutoMapper;
 using XMLDatabase.Models;
 using Bookstore.Models;
+using ElectroShopMobile.CustomAttributes;
+using Bookstore.CustomPrincipalNamespace;
+using System.Web.Script.Serialization;
+using System.Web.Security;
 
 namespace Bookstore.Controllers
 {
@@ -37,18 +41,37 @@ namespace Bookstore.Controllers
                 User user = userService.GetByUsername(model.UserName);
                 if (user != null && user.Password.Equals(model.Password))
                 {
-                    var inUser = User;
+                    CustomPrincipalSerializeModel serializeModel = new CustomPrincipalSerializeModel();
+                    serializeModel.Username = user.Username;
+                    serializeModel.Role = user.Role;
+                    serializeModel.Firstname = user.Firstname;
+                    serializeModel.Lastname = user.Lastname;
+
+                    JavaScriptSerializer serializer = new JavaScriptSerializer();
+                    string userData = serializer.Serialize(serializeModel);
+
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                        1,
+                        user.Firstname + user.Lastname,
+                        DateTime.Now,
+                        DateTime.Now.AddMinutes(15),
+                        false,
+                        userData
+                        );
+
+                    string encTicket = FormsAuthentication.Encrypt(authTicket);
+                    HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+                    Response.Cookies.Add(faCookie);
+
                     return RedirectToAction("Index", "Books", null);
                 }
-                    
             }
 
-            // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
 
-        
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             MapperConfiguration config = new MapperConfiguration(cfg => { cfg.CreateMap<User, UserViewModel>(); });
