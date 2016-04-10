@@ -15,5 +15,6 @@ namespace Services.Interfaces
         void Insert(User employee);
         void Update(User employee);
         void Delete(int id);
+        User GetById(int id);
     }
 }
