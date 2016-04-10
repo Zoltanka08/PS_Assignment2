@@ -37,6 +37,9 @@ namespace Bookstore.App_Start
             container.
                 RegisterType<UserAuthorizeAttribute>().
                 RegisterType<IEmployeeService,EmployeeService>();
+            container.
+                RegisterType<EmployeeController>().
+                RegisterType<IEmployeeService, EmployeeService>();
         }
          
     }

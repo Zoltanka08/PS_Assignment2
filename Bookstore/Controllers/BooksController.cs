@@ -103,13 +103,7 @@ namespace Bookstore.Controllers
             }
             catch(DatabaseException)
             {
-                ModelState.AddModelError("", "Delete has been failed!");
-                MapperConfiguration config = new MapperConfiguration(cfg => { cfg.CreateMap<Book, BookViewModel>(); });
-                IMapper mapper = config.CreateMapper();
-
-                Book book = bookService.GetById(id);
-                BookViewModel bookModel = mapper.Map<Book, BookViewModel>(book);
-                return View(bookModel);
+                Response.Write(@"<SCRIPT LANGUAGE=""JavaScript"">alert('" + "Delete fas been failed!" + "')</SCRIPT>");
             }
             return RedirectToAction("Index","Books",null);
         }
@@ -140,5 +134,7 @@ namespace Bookstore.Controllers
 
             return RedirectToAction("Index", "Books", null);
         }
+
+
     }
 }

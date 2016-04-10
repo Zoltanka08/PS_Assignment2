@@ -28,7 +28,7 @@
                         @{
                             if (User != null && User.IsInRole("admin"))
                             {
-                                <li>@Html.ActionLink("Users", "Index", "MyAccount")</li>
+                                <li>@Html.ActionLink("Users", "Index", "Employee",null,null)</li>
                             }
                         }
                         <li>@Html.ActionLink("About", "About", "Home")</li>

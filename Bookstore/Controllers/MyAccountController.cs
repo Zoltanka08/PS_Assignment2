@@ -78,17 +78,5 @@ namespace Bookstore.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-
-        [UserAuthorize(Roles="admin")]
-        public ActionResult Index()
-        {
-            MapperConfiguration config = new MapperConfiguration(cfg => { cfg.CreateMap<User, UserViewModel>(); });
-            IMapper mapper = config.CreateMapper();
-
-            IEnumerable<User> users = userService.GetAll();
-            IEnumerable<UserViewModel> userModels = mapper.Map<IEnumerable<User>, IEnumerable<UserViewModel>>(users);
-            return View(userModels);
-        }
-
     }
 }
