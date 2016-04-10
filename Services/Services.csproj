@@ -49,6 +49,7 @@
     <Compile Include="CustomException\BusinessException.cs" />
     <Compile Include="CustomException\DatabaseException.cs" />
     <Compile Include="CustomException\GenericException.cs" />
+    <Compile Include="CustomException\ReportException.cs" />
     <Compile Include="ExceptionResponse\AuthorizationResponse.cs" />
     <Compile Include="ExceptionResponse\BusinessResponse.cs" />
     <Compile Include="ExceptionResponse\DatabaseResponse.cs" />
