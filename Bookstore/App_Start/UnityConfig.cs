@@ -7,6 +7,7 @@ using Bookstore.DependencyInjection;
 using Bookstore.Controllers;
 using Services.Interfaces;
 using Services.Services;
+using ElectroShopMobile.CustomAttributes;
 
 namespace Bookstore.App_Start
 {
@@ -33,6 +34,9 @@ namespace Bookstore.App_Start
             container.
                 RegisterType<MyAccountController>().
                 RegisterType<IEmployeeService, EmployeeService>();
+            container.
+                RegisterType<UserAuthorizeAttribute>().
+                RegisterType<IEmployeeService,EmployeeService>();
         }
          
     }

@@ -22,7 +22,6 @@ namespace Bookstore
             // For more information, visit http://go.microsoft.com/fwlink/?LinkId=279712.
             //config.EnableQuerySupport();
 
-            UnityContainer container = new UnityContainer();
         }
     }
 }

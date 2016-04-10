@@ -52,7 +52,7 @@ namespace Bookstore.Controllers
 
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
                         1,
-                        user.Firstname + user.Lastname,
+                        user.Username,
                         DateTime.Now,
                         DateTime.Now.AddMinutes(15),
                         false,
@@ -71,7 +71,15 @@ namespace Bookstore.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [UserAuthorize(Roles="admin")]
         public ActionResult Index()
         {
             MapperConfiguration config = new MapperConfiguration(cfg => { cfg.CreateMap<User, UserViewModel>(); });
