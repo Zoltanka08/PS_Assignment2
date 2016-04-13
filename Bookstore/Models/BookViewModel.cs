@@ -36,6 +36,7 @@ namespace Bookstore.Models
         public int Quantity { get; set; }
 
         [Required]
+        [Range(0, int.MaxValue)]
         public int Number { get; set; }
     }
 }

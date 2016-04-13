@@ -67,7 +67,7 @@ namespace Bookstore.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("CustomError", "The user name or password provided is incorrect.");
             return View(model);
         }
 

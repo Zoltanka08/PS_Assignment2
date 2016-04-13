@@ -9,21 +9,18 @@
     <Pages>180</Pages>
     <Published>1925</Published>
     <Price>9.34</Price>
-    <Quantity>12</Quantity>
+    <Quantity>18</Quantity>
   </Book>
   <Book>
     <Id>2</Id>
     <Title>Plague land</Title>
     <Genre>Mystery</Genre>
-    <Description>In this chilling historical mystery, 
-		young girls go missing from a medieval English village and Lord Oswald 
-		de Lacy must find the killer before tragedy strikes again.
-		</Description>
+    <Description>In this chilling historical mystery, 		young girls go missing from a medieval English village and Lord Oswald 		de Lacy must find the killer before tragedy strikes again.		</Description>
     <Author>S.D. Sykes</Author>
     <Pages>336</Pages>
     <Published>2015</Published>
     <Price>13.5</Price>
-    <Quantity>5</Quantity>
+    <Quantity>4</Quantity>
   </Book>
   <Book>
     <Id>3</Id>

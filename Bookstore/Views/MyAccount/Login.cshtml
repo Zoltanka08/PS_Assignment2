@@ -12,7 +12,10 @@
 
     <fieldset>
         <legend>LoginModel</legend>
-
+        
+        <div class="editor-field">
+            @Html.ValidationMessage("CustomError")
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
         </div>

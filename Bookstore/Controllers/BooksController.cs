@@ -61,6 +61,27 @@ namespace Bookstore.Controllers
         [UserAuthorize(Roles = "employee")]
         public ActionResult SellBook(BookViewModel model)
         {
+            MapperConfiguration config = new MapperConfiguration(cfg => { cfg.CreateMap<BookViewModel, Book>(); });
+            IMapper mapper = config.CreateMapper();
+
+            Book book = mapper.Map<BookViewModel, Book>(model);
+            book.Quantity = book.Quantity - model.Number;
+            if(book.Quantity < 0)
+            {
+                ModelState.AddModelError("CustomError", "Sell has been failed! Not enought books on stock!");
+                return View(model);
+            }
+
+            try
+            {
+                bookService.Update(book);
+            }
+            catch(DatabaseException)
+            {
+                ModelState.AddModelError("CustomError", "Sell has been failed!");
+                return View(model);
+            }
+
             return RedirectToAction("Index", "Books", null); 
         }
 

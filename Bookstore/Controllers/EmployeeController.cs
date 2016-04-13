@@ -55,7 +55,7 @@ namespace Bookstore.Controllers
             }
             catch(DatabaseException)
             {
-                ModelState.AddModelError("","User cannot be inserted!");
+                ModelState.AddModelError("CustomError","User cannot be inserted!");
                 return View(model);
             }
 
@@ -88,7 +88,7 @@ namespace Bookstore.Controllers
             }
             catch(DatabaseException)
             {
-                ModelState.AddModelError("", "Edit has been failed!");
+                ModelState.AddModelError("CustomError", "Edit has been failed!");
                 return View(model);
             }
 
