@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLDatabase", "XMLDatabase\XMLDatabase.csproj", "{AEA8E439-4008-4011-9F78-B4E4EB98C1A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesTest", "ServicesTest\ServicesTest.csproj", "{59BFE624-5F38-4CBA-9E31-2828F4F822DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AEA8E439-4008-4011-9F78-B4E4EB98C1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEA8E439-4008-4011-9F78-B4E4EB98C1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEA8E439-4008-4011-9F78-B4E4EB98C1A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BFE624-5F38-4CBA-9E31-2828F4F822DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BFE624-5F38-4CBA-9E31-2828F4F822DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BFE624-5F38-4CBA-9E31-2828F4F822DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BFE624-5F38-4CBA-9E31-2828F4F822DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
